@@ -20,9 +20,7 @@ def degree(radius: float, acceleration: float, time: float, velocity: float = 0)
     """
     square = velocity * time + (acceleration * time**2) / 2
     circumference = 2 * pi * radius
-    if circumference == 0:
+    if circumference == 0 or radius < 0:
         return 0
     offset_angle = ceil(AREA_CIRCUS * (square % circumference))
-    if abs(offset_angle) <= AREA_CIRCUS:
-        return offset_angle
-    return abs(offset_angle) % AREA_CIRCUS
+    return (offset_angle) % AREA_CIRCUS
