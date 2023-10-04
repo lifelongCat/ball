@@ -2,7 +2,7 @@
 
 import pytest
 
-from ball.task2 import degree
+from task2 import degree
 
 TEST_CASES = (
     (5.0, 2.0, 3.0, 4.0, 0)
