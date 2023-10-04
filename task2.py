@@ -3,6 +3,8 @@
 
 from math import ceil, pi
 
+AREA_CIRCUS = 360
+
 
 def degree(radius: float, acceleration: float, time: float, velocity: float = 0) -> float:
     """Extract the degree of offset of the intersection point.
@@ -17,11 +19,10 @@ def degree(radius: float, acceleration: float, time: float, velocity: float = 0)
         float: a shift of a dot of the ball, degrees.
     """
     square = velocity * time + (acceleration * time**2) / 2
-    area_circus = 360
     circumference = 2 * pi * radius
     if circumference == 0:
         return 0
-    offset_angle = ceil(area_circus * (square % circumference))
-    if abs(offset_angle) <= area_circus:
+    offset_angle = ceil(AREA_CIRCUS * (square % circumference))
+    if abs(offset_angle) <= AREA_CIRCUS:
         return offset_angle
-    return abs(offset_angle) % area_circus
+    return abs(offset_angle) % AREA_CIRCUS
