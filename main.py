@@ -16,7 +16,8 @@ def degree(radius: float, acceleration: float, time: float, velocity: float = 0)
     """
     full_circle = 360
     var_types = set(map(type, [radius, acceleration, time, velocity]))
-    if var_types != {int, float}:
+    print(var_types)
+    if var_types != {int, float} and var_types != {float}:
         return -1.0
     if radius < 0 or acceleration < 0 or time < 0 or velocity < 0:
         return -1.0
